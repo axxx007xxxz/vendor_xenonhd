@@ -84,9 +84,6 @@ endif
 
 # XenonHD packages
 PRODUCT_PACKAGES += \
-ifneq ($(DISABLE_AUDIOFX), true)
-    AudioFX \
-endif
     BluetoothExt \
     CMAudioService \
     CMParts \
@@ -114,6 +111,12 @@ endif
     WallpaperPicker \
     WeatherManagerService \
     WeatherProvider
+
+# Allow to exclude AudioFX
+ifneq ($(DISABLE_AUDIOFX), true)
+PRODUCT_PACKAGES += \
+    AudioFX
+endif
 
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
